@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "356352049576",
+    "project_id": "healthyhair-79db7",
+    "storage_bucket": "healthyhair-79db7.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:356352049576:android:b4db61941b472ea9c05d9d",
+        "android_client_info": {
+          "package_name": "com.example.healthyhair"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "356352049576-6esgvu0ipg8d7ov2hi1m6blpv5dietkc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBO2Bl8QoTpzP523d6fIqWp38Dsc_3CJNs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "356352049576-6esgvu0ipg8d7ov2hi1m6blpv5dietkc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
