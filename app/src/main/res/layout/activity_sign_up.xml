@@ -4,23 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".SignUpActivity">
     <View
         android:id="@+id/header_view"
         android:layout_width="match_parent"
         android:layout_height="200dp"
-        android:background="@drawable/header_bg">
-
-    </View>
+        android:background="@drawable/header_bg"/>
     <LinearLayout
-        android:layout_marginTop="70dp"
+        android:layout_marginTop="80dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/header_view"
         android:orientation="vertical">
-
-        <include layout="@layout/login_form" />
-
+        <include layout="@layout/signup_form"/>
     </LinearLayout>
 
     <LinearLayout
@@ -32,4 +28,6 @@
             android:layout_height="200dp"
             android:background="@drawable/bottom_bg"/>
     </LinearLayout>
+
+
 </RelativeLayout>
