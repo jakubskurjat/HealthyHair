@@ -67,8 +67,7 @@ public class SignUpActivity extends AppCompatActivity {
                     } else {
                         Toast.makeText(
                                 getApplicationContext(),
-                                "Registration failed!"
-                                        + " User already exists!",
+                                "Registration failed!",
                                 Toast.LENGTH_LONG)
                                 .show();
                     }
