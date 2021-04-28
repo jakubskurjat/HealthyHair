@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.Surface;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -77,17 +76,17 @@ public class MainActivity extends AppCompatActivity {
 
                                 SharedPreferences preferences = getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE);
 
-                                if(preferences.getBoolean("PREFERENCES",false)){
+                                if (preferences.getBoolean("PREFERENCES", false)) {
 
                                     // Here the connectivity between Main and User Activity will be implemented
 
                                 } else {
                                     SharedPreferences pref = getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor editor = pref.edit();
-                                    editor.putBoolean("PREFERENCES",true);
+                                    editor.putBoolean("PREFERENCES", true);
                                     editor.commit();
 
-                                    Intent intent = new Intent(MainActivity.this, UserSurvey.class);
+                                    Intent intent = new Intent(MainActivity.this, StartingSurvey.class);
                                     startActivity(intent);
                                 }
                             } else {
