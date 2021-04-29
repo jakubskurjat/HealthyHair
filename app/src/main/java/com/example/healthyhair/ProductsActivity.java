@@ -44,6 +44,9 @@ public class ProductsActivity extends AppCompatActivity {
 
             singleProductListAdapter.set(new SingleProductListAdapter(ProductsActivity.this, R.layout.single_product_item, everyProducts.get()));
             listView.setAdapter(singleProductListAdapter.get());
+
+            etProductName.setText("");
+            etProductComposition.setText("");
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.porosityNavBar);
