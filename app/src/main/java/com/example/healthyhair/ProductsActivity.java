@@ -1,24 +1,50 @@
 package com.example.healthyhair;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import static android.widget.Toast.LENGTH_LONG;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicReference;
 
 public class ProductsActivity extends AppCompatActivity {
+
+    private Button btnAddProduct;
+    private ListView listView;
+    private EditText etProductName;
+    private EditText etProductComposition;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_products);
 
+        btnAddProduct = findViewById(R.id.btnAddProduct);
+        listView = findViewById(R.id.listOfProducts);
+        etProductName = findViewById(R.id.etProductName);
+        etProductComposition = findViewById(R.id.etProductComposition);
+
+        DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
+        AtomicReference<List<Product>> everyProducts = new AtomicReference<>(dataBaseHelper.getProducts());
+        AtomicReference<SingleProductListAdapter> singleProductListAdapter = new AtomicReference<>(new SingleProductListAdapter(ProductsActivity.this, R.layout.single_product_item, everyProducts.get()));
+        listView.setAdapter(singleProductListAdapter.get());
+
+        btnAddProduct.setOnClickListener(view -> {
+            Product product = new Product(etProductName.getText().toString(), etProductComposition.getText().toString());
+            dataBaseHelper.addProduct(product);
+            everyProducts.set(dataBaseHelper.getProducts());
+
+            singleProductListAdapter.set(new SingleProductListAdapter(ProductsActivity.this, R.layout.single_product_item, everyProducts.get()));
+            listView.setAdapter(singleProductListAdapter.get());
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.porosityNavBar);
         Menu menu = bottomNavigationView.getMenu();
@@ -39,7 +65,7 @@ public class ProductsActivity extends AppCompatActivity {
                     item.setChecked(true);
                     break;
 
-                case R.id.products:
+                case R.id.productComposition:
                     item.setChecked(true);
                     break;
 

@@ -6,11 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import static android.widget.Toast.LENGTH_LONG;
 
 public class SettingsActivity extends AppCompatActivity {
 
@@ -38,7 +35,7 @@ public class SettingsActivity extends AppCompatActivity {
                     item.setChecked(true);
                     break;
 
-                case R.id.products:
+                case R.id.productComposition:
                     Intent intent3 = new Intent(SettingsActivity.this, ProductsActivity.class);
                     startActivity(intent3);
                     item.setChecked(true);

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="100">
+
+
+    <TextView
+        android:id="@+id/tvDate"
+
+        android:layout_width="369dp"
+        android:layout_height="140dp"
+        android:layout_weight="66.6"
+        android:gravity="center"
+        android:text="Date"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:background="@drawable/boarder"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="33.3"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/boarder"
+            android:gravity="center"
+            android:text="Product's name" />
+
+        <TextView
+            android:id="@+id/productComposition"
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:layout_below="@+id/tvProductName"
+            android:background="@drawable/boarder"
+            android:gravity="center"
+            android:text="Product's composition"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -4,13 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import static android.widget.Toast.LENGTH_LONG;
 
 public class HomeActivity extends AppCompatActivity {
 
@@ -37,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
                     item.setChecked(true);
                     break;
 
-                case R.id.products:
+                case R.id.productComposition:
                     Intent intent3 = new Intent(HomeActivity.this, ProductsActivity.class);
                     startActivity(intent3);
                     item.setChecked(true);

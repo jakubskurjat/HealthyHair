@@ -1,16 +1,13 @@
 package com.example.healthyhair;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-
-import static android.widget.Toast.LENGTH_LONG;
 
 public class CosmeticsActivity extends AppCompatActivity {
 
@@ -36,7 +33,7 @@ public class CosmeticsActivity extends AppCompatActivity {
                     item.setChecked(true);
                     break;
 
-                case R.id.products:
+                case R.id.productComposition:
                     Intent intent3 = new Intent(CosmeticsActivity.this, ProductsActivity.class);
                     startActivity(intent3);
                     item.setChecked(true);

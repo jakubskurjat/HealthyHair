@@ -65,7 +65,7 @@ public class SurveyActivity extends AppCompatActivity {
                     item.setChecked(true);
                     break;
 
-                case R.id.products:
+                case R.id.productComposition:
                     Intent intent3 = new Intent(SurveyActivity.this, ProductsActivity.class);
                     startActivity(intent3);
                     item.setChecked(true);
