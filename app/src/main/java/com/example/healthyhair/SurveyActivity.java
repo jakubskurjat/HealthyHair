@@ -7,15 +7,12 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.concurrent.atomic.AtomicBoolean;
-
-import static android.widget.Toast.LENGTH_LONG;
 
 public class SurveyActivity extends AppCompatActivity {
 
@@ -57,28 +54,30 @@ public class SurveyActivity extends AppCompatActivity {
         bottomNavigationView.setOnNavigationItemSelectedListener(item -> {
             switch (item.getItemId()) {
                 case R.id.home:
-                    Toast.makeText(SurveyActivity.this, "Arrow", LENGTH_LONG).show();
-                    item.setChecked(true);
-                    break;
-
-                case R.id.cosmetics:
-                    Intent intent1 = new Intent(SurveyActivity.this, SignUpActivity.class);
+                    Intent intent1 = new Intent(SurveyActivity.this, HomeActivity.class);
                     startActivity(intent1);
                     item.setChecked(true);
                     break;
 
+                case R.id.cosmetics:
+                    Intent intent2 = new Intent(SurveyActivity.this, CosmeticsActivity.class);
+                    startActivity(intent2);
+                    item.setChecked(true);
+                    break;
+
                 case R.id.products:
-                    Toast.makeText(SurveyActivity.this, "Books", LENGTH_LONG);
+                    Intent intent3 = new Intent(SurveyActivity.this, ProductsActivity.class);
+                    startActivity(intent3);
                     item.setChecked(true);
                     break;
 
                 case R.id.survey:
-                    Toast.makeText(SurveyActivity.this, "Center Focus", LENGTH_LONG).show();
                     item.setChecked(true);
                     break;
 
                 case R.id.settings:
-                    Toast.makeText(SurveyActivity.this, "Settings", LENGTH_LONG).show();
+                    Intent intent5 = new Intent(SurveyActivity.this, SettingsActivity.class);
+                    startActivity(intent5);
                     item.setChecked(true);
                     break;
             }

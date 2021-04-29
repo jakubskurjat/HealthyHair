@@ -11,7 +11,6 @@ public class StartingSurvey extends AppCompatActivity {
 
     private StartingSurveyQuestions startingSurveyQuestions = new StartingSurveyQuestions();
     private TextView questionView;
-    private TextView scoreView;
     private Button choice1;
     private Button choice2;
     private Button choice3;
@@ -24,7 +23,6 @@ public class StartingSurvey extends AppCompatActivity {
         setContentView(R.layout.activity_starting_survey);
 
         questionView = findViewById(R.id.question);
-        scoreView = findViewById(R.id.score);
         choice1 = findViewById(R.id.choice1);
         choice2 = findViewById(R.id.choice2);
         choice3 = findViewById(R.id.choice3);
@@ -34,15 +32,12 @@ public class StartingSurvey extends AppCompatActivity {
                 score += 3;
             else
                 score++;
-
-            updateScore(score);
             updateQuestion();
 
         });
 
         choice2.setOnClickListener(view -> {
             score += 2;
-            updateScore(score);
             updateQuestion();
 
         });
@@ -52,7 +47,6 @@ public class StartingSurvey extends AppCompatActivity {
                 score++;
             else
                 score += 3;
-            updateScore(score);
             updateQuestion();
 
         });
@@ -71,9 +65,5 @@ public class StartingSurvey extends AppCompatActivity {
             intent.putExtra("score", score);
             startActivity(intent);
         }
-    }
-
-    private void updateScore(int points) {
-        scoreView.setText("" + points);
     }
 }

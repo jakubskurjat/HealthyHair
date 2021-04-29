@@ -79,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
                                 if (preferences.getBoolean("PREFERENCES", false)) {
 
                                     // Here the connectivity between Main and User Interface will be implemented
-                                    Intent intent = new Intent(MainActivity.this, SurveyActivity.class);
+                                    Intent intent = new Intent(MainActivity.this, HomeActivity.class);
                                     startActivity(intent);
 
                                 } else {
