@@ -1,5 +1,6 @@
 package com.example.healthyhair;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
@@ -22,14 +23,18 @@ public class StartingSurvey extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_starting_survey);
 
-        questionView = (TextView) findViewById(R.id.question);
-        scoreView = (TextView) findViewById(R.id.score);
-        choice1 = (Button) findViewById(R.id.choice1);
-        choice2 = (Button) findViewById(R.id.choice2);
-        choice3 = (Button) findViewById(R.id.choice3);
+        questionView = findViewById(R.id.question);
+        scoreView = findViewById(R.id.score);
+        choice1 = findViewById(R.id.choice1);
+        choice2 = findViewById(R.id.choice2);
+        choice3 = findViewById(R.id.choice3);
 
         choice1.setOnClickListener(view -> {
-            score++;
+            if (questionNumber == 0 | questionNumber == 6)
+                score += 3;
+            else
+                score++;
+
             updateScore(score);
             updateQuestion();
 
@@ -43,7 +48,10 @@ public class StartingSurvey extends AppCompatActivity {
         });
 
         choice3.setOnClickListener(view -> {
-            score += 3;
+            if (questionNumber == 0 | questionNumber == 6)
+                score++;
+            else
+                score += 3;
             updateScore(score);
             updateQuestion();
 
@@ -59,7 +67,9 @@ public class StartingSurvey extends AppCompatActivity {
 
             questionNumber++;
         } else {
-            // Here the connectivity between Starting Survey and UserInterface will be implemented
+            Intent intent = new Intent(StartingSurvey.this, SurveyActivity.class);
+            intent.putExtra("score", score);
+            startActivity(intent);
         }
     }
 

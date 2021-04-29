@@ -79,6 +79,8 @@ public class MainActivity extends AppCompatActivity {
                                 if (preferences.getBoolean("PREFERENCES", false)) {
 
                                     // Here the connectivity between Main and User Interface will be implemented
+                                    Intent intent = new Intent(MainActivity.this, SurveyActivity.class);
+                                    startActivity(intent);
 
                                 } else {
                                     SharedPreferences pref = getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE);
