@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
                                 if (preferences.getBoolean("PREFERENCES", false)) {
 
-                                    // Here the connectivity between Main and User Activity will be implemented
+                                    // Here the connectivity between Main and User Interface will be implemented
 
                                 } else {
                                     SharedPreferences pref = getSharedPreferences("PREFERENCES", Context.MODE_PRIVATE);

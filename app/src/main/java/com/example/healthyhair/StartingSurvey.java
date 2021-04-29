@@ -3,7 +3,6 @@ package com.example.healthyhair;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -52,17 +51,16 @@ public class StartingSurvey extends AppCompatActivity {
     }
 
     private void updateQuestion() {
-        questionView.setText(startingSurveyQuestions.getQuestion(questionNumber));
-        choice1.setText(startingSurveyQuestions.getChoice1(questionNumber));
-        choice2.setText(startingSurveyQuestions.getChoice2(questionNumber));
-        choice3.setText(startingSurveyQuestions.getChoice3(questionNumber));
+        if (questionNumber < startingSurveyQuestions.questionsNumber()) {
+            questionView.setText(startingSurveyQuestions.getQuestion(questionNumber));
+            choice1.setText(startingSurveyQuestions.getChoice1(questionNumber));
+            choice2.setText(startingSurveyQuestions.getChoice2(questionNumber));
+            choice3.setText(startingSurveyQuestions.getChoice3(questionNumber));
 
-        questionNumber++;
-
-        Toast.makeText(getApplicationContext(),
-                "Your score: " + score,
-                Toast.LENGTH_LONG)
-                .show();
+            questionNumber++;
+        } else {
+            // Here the connectivity between Starting Survey and UserInterface will be implemented
+        }
     }
 
     private void updateScore(int points) {
