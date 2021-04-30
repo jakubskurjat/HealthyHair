@@ -6,6 +6,118 @@
     android:layout_height="match_parent"
     tools:context=".CosmeticsActivity">
 
+    <AutoCompleteTextView
+        android:id="@+id/simpleAutoCompleteTextView"
+        android:layout_width="292dp"
+        android:layout_height="49dp"
+        android:hint="Product's name"
+        app:layout_constraintBottom_toTopOf="@+id/productsRecView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.134"
+        tools:ignore="MissingConstraints" />
+
+    <RadioGroup
+        android:id="@+id/rbProductType"
+        android:layout_width="374dp"
+        android:layout_height="24dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/simpleAutoCompleteTextView"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/rbShampoo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="37dp"
+            android:text="Shampoo"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="68dp" />
+
+        <RadioButton
+            android:id="@+id/rbConditioner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="37dp"
+            android:text="Conditioner"
+            app:layout_constraintEnd_toStartOf="@+id/radioButton3"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <RadioButton
+            android:id="@+id/rbHairMask"
+            android:layout_width="104dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="100dp"
+            android:text="Hair mask"
+            app:layout_constraintEnd_toStartOf="@+id/radioButton3"
+            tools:layout_editor_absoluteY="67dp" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rbType"
+        android:layout_width="374dp"
+        android:layout_height="24dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="24dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/etProductComposition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rbProductType"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/rbProtein"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="37dp"
+            android:text="Protein"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="68dp" />
+
+        <RadioButton
+            android:id="@+id/rbEmollient"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="39dp"
+            android:text="Emollient"
+            app:layout_constraintEnd_toStartOf="@+id/radioButton3"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <RadioButton
+            android:id="@+id/rbHumectant"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Humectant"
+            app:layout_constraintEnd_toStartOf="@+id/radioButton2"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="63dp" />
+    </RadioGroup>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productsRecView"
+        android:layout_width="407dp"
+        android:layout_height="530dp"
+        app:layout_constraintBottom_toTopOf="@+id/porosityNavBar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
+        app:reverseLayout="true"
+        app:stackFromEnd="true"
+        tools:ignore="MissingConstraints"></androidx.recyclerview.widget.RecyclerView>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/porosityNavBar"
         android:layout_width="match_parent"
@@ -17,5 +129,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:menu="@menu/navbar"></com.google.android.material.bottomnavigation.BottomNavigationView>
+
+    <Button
+        android:id="@+id/btnShowProduct"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Show products"
+        app:layout_constraintBottom_toTopOf="@+id/productsRecView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rbType" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
