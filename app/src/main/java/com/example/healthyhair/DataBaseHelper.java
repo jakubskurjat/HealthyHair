@@ -16,6 +16,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_DATE = "COLUMN_DATE";
     public static final String COLUMN_NAME = "COLUMN_NAME";
     public static final String COLUMN_COMPOSITION = "COLUMN_COMPOSITION";
+    public static final String COLUMN_PRODUCT_TYPE = "COLUMN_PRODUCT_TYPE";
+    public static final String COLUMN_TYPE = "COLUMN_TYPE";
     public static final String COLUMN_ID = "COLUMN_ID";
 
     public DataBaseHelper(@Nullable Context context) {
@@ -24,7 +26,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createStatement = "CREATE TABLE " + PRODUCTS_ADDED + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_DATE + " TEXT, " + COLUMN_NAME + " TEXT, " + COLUMN_COMPOSITION + " TEXT)";
+        String createStatement = "CREATE TABLE " + PRODUCTS_ADDED + " (" + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COLUMN_DATE + " TEXT, " + COLUMN_NAME + " TEXT, " + COLUMN_COMPOSITION + " TEXT, " +
+                COLUMN_PRODUCT_TYPE + " TEXT, " + COLUMN_TYPE + " TEXT)";
 
         db.execSQL(createStatement);
     }
@@ -41,6 +44,8 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         cv.put(COLUMN_DATE, product.getTime());
         cv.put(COLUMN_NAME, product.getName());
         cv.put(COLUMN_COMPOSITION, product.getComposition());
+        cv.put(COLUMN_PRODUCT_TYPE, product.getProductType());
+        cv.put(COLUMN_TYPE, product.getType());
 
         long insert = db.insert(PRODUCTS_ADDED, null, cv);
 
@@ -65,8 +70,10 @@ public class DataBaseHelper extends SQLiteOpenHelper {
                 String date = cursor.getString(1);
                 String name = cursor.getString(2);
                 String composition = cursor.getString(3);
+                String productType = cursor.getString(4);
+                String type = cursor.getString(5);
 
-                Product product = new Product(date, name, composition);
+                Product product = new Product(date, name, composition, productType, type);
                 returnList.add(product);
             } while (cursor.moveToNext());
         } else {

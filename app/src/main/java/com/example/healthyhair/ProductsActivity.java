@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -21,6 +23,12 @@ public class ProductsActivity extends AppCompatActivity {
     private ListView listView;
     private EditText etProductName;
     private EditText etProductComposition;
+    private RadioButton rbShampoo;
+    private RadioButton rbConditioner;
+    private RadioButton rbHairMask;
+    private RadioButton rbProtein;
+    private RadioButton rbEmollient;
+    private RadioButton rbHumectant;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +39,12 @@ public class ProductsActivity extends AppCompatActivity {
         listView = findViewById(R.id.listOfProducts);
         etProductName = findViewById(R.id.etProductName);
         etProductComposition = findViewById(R.id.etProductComposition);
+        rbShampoo = findViewById(R.id.rbShampoo);
+        rbConditioner = findViewById(R.id.rbConditioner);
+        rbHairMask = findViewById(R.id.rbHairMask);
+        rbProtein = findViewById(R.id.rbProtein);
+        rbEmollient = findViewById(R.id.rbEmollient);
+        rbHumectant = findViewById(R.id.rbHumectant);
 
         DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
         AtomicReference<List<Product>> everyProducts = new AtomicReference<>(dataBaseHelper.getProducts());
@@ -38,7 +52,37 @@ public class ProductsActivity extends AppCompatActivity {
         listView.setAdapter(singleProductListAdapter.get());
 
         btnAddProduct.setOnClickListener(view -> {
-            Product product = new Product(etProductName.getText().toString(), etProductComposition.getText().toString());
+
+            String productType = "";
+            String type = "";
+
+            if(rbShampoo.isChecked()){
+                productType = rbShampoo.getText().toString();
+                rbShampoo.setChecked(false);
+            }
+            else if(rbConditioner.isChecked()){
+                productType = rbConditioner.getText().toString();
+                rbConditioner.setChecked(false);
+            }
+            else if(rbHairMask.isChecked()){
+                productType = rbHairMask.getText().toString();
+                rbHairMask.setChecked(false);
+            }
+
+            if(rbProtein.isChecked()){
+                type = rbProtein.getText().toString();
+                rbProtein.setChecked(false);
+            }
+            else if(rbEmollient.isChecked()){
+                type = rbEmollient.getText().toString();
+                rbEmollient.setChecked(false);
+            }
+            else if(rbHumectant.isChecked()){
+                type = rbHumectant.getText().toString();
+                rbHumectant.setChecked(false);
+            }
+
+            Product product = new Product(etProductName.getText().toString(), etProductComposition.getText().toString(), productType , type);
             dataBaseHelper.addProduct(product);
             everyProducts.set(dataBaseHelper.getProducts());
 

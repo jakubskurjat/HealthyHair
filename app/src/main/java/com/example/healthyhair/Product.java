@@ -8,17 +8,23 @@ public class Product {
     private String time;
     private String name;
     private String composition;
+    private String productType;
+    private String type;
 
-    public Product(String time, String name, String composition) {
+    public Product(String time, String name, String composition, String productType, String type) {
         this.time = time;
         this.name = name;
         this.composition = composition;
+        this.productType = productType;
+        this.type = type;
     }
 
-    public Product(String name, String composition) {
+    public Product(String name, String composition, String productType, String type) {
         this.time = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
         this.name = name;
         this.composition = composition;
+        this.productType = productType;
+        this.type = type;
     }
 
     public String getTime() {
@@ -33,12 +39,22 @@ public class Product {
         return composition;
     }
 
+    public String getProductType() {
+        return productType;
+    }
+
+    public String getType() {
+        return type;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
                 "time='" + time + '\'' +
                 ", name='" + name + '\'' +
                 ", composition='" + composition + '\'' +
+                ", productType='" + productType + '\'' +
+                ", type='" + type + '\'' +
                 '}';
     }
 }
