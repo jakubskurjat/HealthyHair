@@ -3,6 +3,7 @@ package com.example.healthyhair;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +15,7 @@ public class StartingSurvey extends AppCompatActivity {
     private Button choice1;
     private Button choice2;
     private Button choice3;
+    private ProgressBar progressBar;
     private int score = 0;
     private int questionNumber = 0;
 
@@ -26,6 +28,7 @@ public class StartingSurvey extends AppCompatActivity {
         choice1 = findViewById(R.id.choice1);
         choice2 = findViewById(R.id.choice2);
         choice3 = findViewById(R.id.choice3);
+        progressBar = findViewById(R.id.progressBar);
 
         choice1.setOnClickListener(view -> {
             if (questionNumber == 0 | questionNumber == 6)
@@ -34,12 +37,14 @@ public class StartingSurvey extends AppCompatActivity {
                 score++;
             updateQuestion();
 
+            progressBar.incrementProgressBy((int) ((double) 100 / 11));
         });
 
         choice2.setOnClickListener(view -> {
             score += 2;
             updateQuestion();
 
+            progressBar.incrementProgressBy((int) ((double) 100 / 11));
         });
 
         choice3.setOnClickListener(view -> {
@@ -49,6 +54,7 @@ public class StartingSurvey extends AppCompatActivity {
                 score += 3;
             updateQuestion();
 
+            progressBar.incrementProgressBy((int) ((double) 100 / 11));
         });
     }
 
