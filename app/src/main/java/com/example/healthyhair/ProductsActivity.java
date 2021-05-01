@@ -112,7 +112,7 @@ public class ProductsActivity extends AppCompatActivity {
                     item.setChecked(true);
                     break;
 
-                case R.id.productComposition:
+                case R.id.product:
                     item.setChecked(true);
                     break;
 
