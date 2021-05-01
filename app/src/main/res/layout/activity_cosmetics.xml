@@ -7,11 +7,12 @@
     tools:context=".CosmeticsActivity">
 
     <AutoCompleteTextView
-        android:id="@+id/simpleAutoCompleteTextView"
-        android:layout_width="292dp"
-        android:layout_height="49dp"
+        android:id="@+id/acTVProductName"
+        android:layout_width="385dp"
+        android:layout_height="45dp"
         android:hint="Product's name"
-        app:layout_constraintBottom_toTopOf="@+id/productsRecView"
+        android:textSize="17dp"
+        app:layout_constraintBottom_toTopOf="@+id/cosmeticsRecView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,7 +31,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/simpleAutoCompleteTextView"
+        app:layout_constraintTop_toBottomOf="@+id/acTVProductName"
         tools:ignore="MissingConstraints">
 
         <RadioButton
@@ -105,7 +106,7 @@
     </RadioGroup>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/productsRecView"
+        android:id="@+id/cosmeticsRecView"
         android:layout_width="407dp"
         android:layout_height="530dp"
         app:layout_constraintBottom_toTopOf="@+id/porosityNavBar"
@@ -135,7 +136,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Show products"
-        app:layout_constraintBottom_toTopOf="@+id/productsRecView"
+        app:layout_constraintBottom_toTopOf="@+id/cosmeticsRecView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rbType" />
