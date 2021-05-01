@@ -13,7 +13,7 @@
         android:title="Cosmetics"
         />
     <item
-        android:id="@+id/productComposition"
+        android:id="@+id/product"
         android:icon="@drawable/ic_products"
         android:title="Your products"
         />

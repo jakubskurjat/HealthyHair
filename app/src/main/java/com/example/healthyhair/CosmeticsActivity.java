@@ -83,7 +83,7 @@ public class CosmeticsActivity extends AppCompatActivity {
                     item.setChecked(true);
                     break;
 
-                case R.id.productComposition:
+                case R.id.product:
                     Intent intent3 = new Intent(CosmeticsActivity.this, ProductsActivity.class);
                     startActivity(intent3);
                     item.setChecked(true);

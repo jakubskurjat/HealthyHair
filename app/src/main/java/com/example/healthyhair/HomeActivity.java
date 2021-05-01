@@ -34,7 +34,7 @@ public class HomeActivity extends AppCompatActivity {
                     item.setChecked(true);
                     break;
 
-                case R.id.productComposition:
+                case R.id.product:
                     Intent intent3 = new Intent(HomeActivity.this, ProductsActivity.class);
                     startActivity(intent3);
                     item.setChecked(true);
