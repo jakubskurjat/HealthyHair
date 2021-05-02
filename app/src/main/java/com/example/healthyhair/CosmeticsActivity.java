@@ -6,7 +6,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
-import android.widget.Toast;
+import android.widget.Button;
+import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -14,10 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class CosmeticsActivity extends AppCompatActivity {
 
@@ -25,6 +26,16 @@ public class CosmeticsActivity extends AppCompatActivity {
     private AutoCompleteTextView autoCompleteTextView;
     private List<Cosmetic> data = new ArrayList<>();
     RecyclerView recyclerView;
+    private Button showCosmetics;
+    private RadioButton rbShampoo;
+    private RadioButton rbConditioner;
+    private RadioButton rbHairMask;
+    private RadioButton rbMild;
+    private RadioButton rbStrong;
+    private RadioButton rbProtein;
+    private RadioButton rbEmollient;
+    private RadioButton rbHumectant;
+    private AutoCompleteTextView tvCosmeticName;
 
     private String[] cosmeticsName = {
             "ANWEN Orange & Bergamot.", "ONLY BIO Balanced shampoo.",
@@ -61,10 +72,9 @@ public class CosmeticsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cosmetics);
 
-        autoCompleteTextView = findViewById(R.id.acTVProductName);
+        autoCompleteTextView = findViewById(R.id.acTVCosmeticName);
         ArrayAdapter adapter = new ArrayAdapter(this, android.R.layout.simple_list_item_activated_1, cosmeticsName);
         autoCompleteTextView.setAdapter(adapter);
-
 
         bottomNavigationView = findViewById(R.id.porosityNavBar);
         Menu menu = bottomNavigationView.getMenu();
@@ -106,6 +116,192 @@ public class CosmeticsActivity extends AppCompatActivity {
         });
 
         addDataToList();
+        tvCosmeticName = findViewById(R.id.acTVCosmeticName);
+        showCosmetics = findViewById(R.id.btnShowCosmetics);
+        rbShampoo = findViewById(R.id.rbShampoo);
+        rbConditioner = findViewById(R.id.rbConditioner);
+        rbHairMask = findViewById(R.id.rbHairMask);
+        rbMild = findViewById(R.id.rbMild);
+        rbStrong = findViewById(R.id.rbStrong);
+        rbProtein = findViewById(R.id.rbProtein);
+        rbEmollient = findViewById(R.id.rbEmollient);
+        rbHumectant = findViewById(R.id.rbHumectant);
+
+        showCosmetics.setOnClickListener(view -> {
+
+            data.clear();
+            addDataToList();
+
+            if (tvCosmeticName.getText().toString().equals("")) {
+
+                if (rbShampoo.isChecked() || rbConditioner.isChecked() || rbHairMask.isChecked() ||
+                        rbProtein.isChecked() || rbEmollient.isChecked() || rbHumectant.isChecked()) {
+
+                    if (rbShampoo.isChecked()) {
+                        List<Cosmetic> cosmetics1 = data.stream().filter(c -> c.getCosmeticSpec().equals("Shampoo")).collect(Collectors.toList());
+                        data.clear();
+                        data.addAll(cosmetics1);
+
+                        if (rbMild.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Mild")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbStrong.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Strong")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+                        }
+                        if (rbProtein.isChecked() || rbEmollient.isChecked() || rbHumectant.isChecked()) {
+                            data.clear();
+                        }
+
+                    } else if (rbConditioner.isChecked()) {
+                        List<Cosmetic> cosmetic1 = data.stream().filter(c -> c.getCosmeticSpec().equals("Conditioner")).collect(Collectors.toList());
+                        data.clear();
+                        data.addAll(cosmetic1);
+
+                        if (rbProtein.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Protein")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbEmollient.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Emollient")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbHumectant.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Humectant")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+                        }
+
+                        if (rbMild.isChecked() || rbStrong.isChecked()) {
+                            data.clear();
+                        }
+
+                    } else if (rbHairMask.isChecked()) {
+                        List<Cosmetic> cosmetic1 = data.stream().filter(c -> c.getCosmeticSpec().equals("Mask")).collect(Collectors.toList());
+                        data.clear();
+                        data.addAll(cosmetic1);
+
+                        if (rbProtein.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Protein")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbEmollient.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Emollient")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbHumectant.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Humectant")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+                        }
+
+                        if (rbMild.isChecked() || rbStrong.isChecked()) {
+                            data.clear();
+                        }
+                    }
+                } else {
+                    data.clear();
+                }
+            } else {
+                Optional<Cosmetic> cosmetic = data.stream().filter(c -> c.getCosmeticName().equals(tvCosmeticName.getText().toString())).findAny();
+
+                if (cosmetic.isPresent()) {
+                    data.clear();
+                    data.add(cosmetic.get());
+
+                    if (rbShampoo.isChecked() || rbConditioner.isChecked() || rbHairMask.isChecked() ||
+                            rbProtein.isChecked() || rbEmollient.isChecked() || rbHumectant.isChecked()) {
+
+                        if (rbShampoo.isChecked()) {
+                            List<Cosmetic> cosmetics1 = data.stream().filter(c -> c.getCosmeticSpec().equals("Shampoo")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics1);
+
+                            if (rbMild.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Mild")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+
+                            } else if (rbStrong.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Strong")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+                            }
+                            if (rbProtein.isChecked() || rbEmollient.isChecked() || rbHumectant.isChecked()) {
+                                data.clear();
+                            }
+
+                        } else if (rbConditioner.isChecked()) {
+                            List<Cosmetic> cosmetic1 = data.stream().filter(c -> c.getCosmeticSpec().equals("Conditioner")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetic1);
+
+                            if (rbProtein.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Protein")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+
+                            } else if (rbEmollient.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Emollient")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+
+                            } else if (rbHumectant.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Humectant")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+                            }
+
+                            if (rbMild.isChecked() || rbStrong.isChecked()) {
+                                data.clear();
+                            }
+
+                        } else if (rbHairMask.isChecked()) {
+                            List<Cosmetic> cosmetic1 = data.stream().filter(c -> c.getCosmeticSpec().equals("Mask")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetic1);
+
+                            if (rbProtein.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Protein")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+
+                            } else if (rbEmollient.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Emollient")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+
+                            } else if (rbHumectant.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Humectant")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+                            }
+
+                            if (rbMild.isChecked() || rbStrong.isChecked()) {
+                                data.clear();
+                            }
+
+                        }
+                    }
+                } else {
+                    data.clear();
+                }
+            }
+
+            recyclerView = findViewById(R.id.cosmeticsRecView);
+            recyclerView.setHasFixedSize(true);
+            recyclerView.setAdapter(new RecyclerViewAdapter(CosmeticsActivity.this, data));
+            recyclerView.setLayoutManager(new LinearLayoutManager(CosmeticsActivity.this));
+        });
+
+
         recyclerView = findViewById(R.id.cosmeticsRecView);
         recyclerView.setHasFixedSize(true);
         recyclerView.setAdapter(new RecyclerViewAdapter(CosmeticsActivity.this, data));
@@ -117,15 +313,15 @@ public class CosmeticsActivity extends AppCompatActivity {
         data.add(new Cosmetic(cosmeticsName[1], "Shampoo", "Mild", cosmeticsComposition[1], "Porosity", R.drawable.only_bio_balanced_shampoo));
         data.add(new Cosmetic(cosmeticsName[2], "Shampoo", "Strong", cosmeticsComposition[2], "Porosity", R.drawable.anwen_wake_it_up));
         data.add(new Cosmetic(cosmeticsName[3], "Shampoo", "Strong", cosmeticsComposition[3], "Porosity", R.drawable.gosh_macadamia_oil));
-        data.add(new Cosmetic(cosmeticsName[4], "Conditioner", "Protein", cosmeticsComposition[4], "Porosity", R.drawable.anwen_protein_magnolia));
-        data.add(new Cosmetic(cosmeticsName[5], "Conditioner", "Protein", cosmeticsComposition[5], "Porosity", R.drawable.anwen_protein_orchid));
-        data.add(new Cosmetic(cosmeticsName[6], "Conditioner", "Emollient", cosmeticsComposition[6], "Porosity", R.drawable.only_bio_emollient_conditioner));
+        data.add(new Cosmetic(cosmeticsName[4], "Conditioner", "Protein", cosmeticsComposition[4], "Medium porosity", R.drawable.anwen_protein_magnolia));
+        data.add(new Cosmetic(cosmeticsName[5], "Conditioner", "Protein", cosmeticsComposition[5], "High porosity", R.drawable.anwen_protein_orchid));
+        data.add(new Cosmetic(cosmeticsName[6], "Conditioner", "Emollient", cosmeticsComposition[6], "Low porosity", R.drawable.only_bio_emollient_conditioner));
         data.add(new Cosmetic(cosmeticsName[7], "Conditioner", "Emollient", cosmeticsComposition[7], "Porosity", R.drawable.anwen_emollient_acacia));
         data.add(new Cosmetic(cosmeticsName[8], "Conditioner", "Humectant", cosmeticsComposition[8], "Porosity", R.drawable.equalibra_moisturizing_conditioner));
-        data.add(new Cosmetic(cosmeticsName[9], "Conditioner", "Humectant", cosmeticsComposition[9], "Porosity", R.drawable.anwen_moisturizing_conditioner));
+        data.add(new Cosmetic(cosmeticsName[9], "Conditioner", "Humectant", cosmeticsComposition[9], "Universal", R.drawable.anwen_moisturizing_conditioner));
         data.add(new Cosmetic(cosmeticsName[10], "Mask", "Protein", cosmeticsComposition[10], "Porosity", R.drawable.ecolab_keratin_hair_mask));
         data.add(new Cosmetic(cosmeticsName[11], "Mask", "Protein", cosmeticsComposition[11], "Porosity", R.drawable.ecolab_rose_hair_mask));
-        data.add(new Cosmetic(cosmeticsName[12], "Mask", "Emollient", cosmeticsComposition[12], "Porosity", R.drawable.anwen_coconut_kaolin));
+        data.add(new Cosmetic(cosmeticsName[12], "Mask", "Emollient", cosmeticsComposition[12], "Low porosity", R.drawable.anwen_coconut_kaolin));
         data.add(new Cosmetic(cosmeticsName[13], "Mask", "Emollient", cosmeticsComposition[13], "Porosity", R.drawable.biolaven_hair_mask));
         data.add(new Cosmetic(cosmeticsName[14], "Mask", "Humectant", cosmeticsComposition[14], "Porosity", R.drawable.cafe_mini_ceramides_hair_mask));
         data.add(new Cosmetic(cosmeticsName[15], "Mask", "Humectant", cosmeticsComposition[15], "Porosity", R.drawable.curlsmith_hydro_creme));
