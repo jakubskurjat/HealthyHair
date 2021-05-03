@@ -20,7 +20,7 @@
         tools:ignore="MissingConstraints" />
 
     <RadioGroup
-        android:id="@+id/rbProductType"
+        android:id="@+id/rbCosmeticSpec"
         android:layout_width="374dp"
         android:layout_height="24dp"
         android:layout_centerHorizontal="true"
@@ -55,7 +55,7 @@
             android:layout_width="104dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="100dp"
-            android:text="Hair mask"
+            android:text="Mask"
             app:layout_constraintEnd_toStartOf="@+id/radioButton3"
             tools:layout_editor_absoluteY="67dp" />
     </RadioGroup>
@@ -66,12 +66,14 @@
         android:layout_height="24dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_marginStart="6dp"
         android:layout_marginTop="24dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/etProductComposition"
+        app:layout_constraintBottom_toTopOf="@+id/rbCosmeticType"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rbProductType"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rbCosmeticSpec"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -80,7 +82,9 @@
             android:layout_height="match_parent"
             android:layout_marginEnd="37dp"
             android:gravity="center"
-            android:text="Shampoo:" />
+            android:text="Shampoo:"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold" />
 
         <RadioButton
             android:id="@+id/rbMild"
@@ -102,7 +106,7 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/rbType"
+        android:id="@+id/rbCosmeticType"
         android:layout_width="374dp"
         android:layout_height="24dp"
         android:layout_centerHorizontal="true"
@@ -112,7 +116,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/etProductComposition"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rbProductType"
+        app:layout_constraintTop_toBottomOf="@+id/rbCosmeticSpec"
         tools:ignore="MissingConstraints">
 
         <RadioButton
@@ -130,7 +134,6 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="38dp"
             android:text="Emollient"
-            app:layout_constraintEnd_toStartOf="@+id/radioButton3"
             tools:layout_editor_absoluteY="67dp" />
 
         <RadioButton
@@ -177,6 +180,6 @@
         app:layout_constraintBottom_toTopOf="@+id/cosmeticsRecView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rbType" />
+        app:layout_constraintTop_toBottomOf="@+id/rbCosmeticType" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

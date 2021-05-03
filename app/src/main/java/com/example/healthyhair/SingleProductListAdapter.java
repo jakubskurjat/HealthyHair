@@ -37,8 +37,8 @@ public class SingleProductListAdapter extends ArrayAdapter<Product> {
         TextView tvDate = convertView.findViewById(R.id.tvDate);
         TextView tvName = convertView.findViewById(R.id.tvProductName);
         TextView tvComposition = convertView.findViewById(R.id.productComposition);
-        TextView tvProductType = convertView.findViewById(R.id.tvProductType);
-        TextView tvType = convertView.findViewById(R.id.tvType);
+        TextView tvProductType = convertView.findViewById(R.id.tvProductSpec);
+        TextView tvType = convertView.findViewById(R.id.tvProductType);
 
         tvDate.setText(date);
         tvName.setText(name);

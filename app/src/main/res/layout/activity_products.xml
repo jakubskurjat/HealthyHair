@@ -68,7 +68,7 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <RadioGroup
-        android:id="@+id/rbProductType"
+        android:id="@+id/rgProductSpec"
         android:layout_width="374dp"
         android:layout_height="24dp"
         android:layout_centerHorizontal="true"
@@ -110,7 +110,7 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/rbType"
+        android:id="@+id/rgProductType"
         android:layout_width="374dp"
         android:layout_height="24dp"
         android:layout_centerHorizontal="true"
@@ -120,7 +120,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rbProductType"
+        app:layout_constraintTop_toBottomOf="@+id/rgProductSpec"
         tools:ignore="MissingConstraints">
 
         <RadioButton

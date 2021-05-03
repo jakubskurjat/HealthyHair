@@ -23,6 +23,8 @@ public class ProductsActivity extends AppCompatActivity {
     private ListView listView;
     private EditText etProductName;
     private EditText etProductComposition;
+    private RadioGroup rgProductSpec;
+    private RadioGroup rgProductType;
     private RadioButton rbShampoo;
     private RadioButton rbConditioner;
     private RadioButton rbHairMask;
@@ -39,6 +41,8 @@ public class ProductsActivity extends AppCompatActivity {
         listView = findViewById(R.id.listOfProducts);
         etProductName = findViewById(R.id.etProductName);
         etProductComposition = findViewById(R.id.etProductComposition);
+        rgProductSpec = findViewById(R.id.rgProductSpec);
+        rgProductType = findViewById(R.id.rgProductType);
         rbShampoo = findViewById(R.id.rbShampoo);
         rbConditioner = findViewById(R.id.rbConditioner);
         rbHairMask = findViewById(R.id.rbHairMask);
@@ -58,28 +62,22 @@ public class ProductsActivity extends AppCompatActivity {
 
             if(rbShampoo.isChecked()){
                 productType = rbShampoo.getText().toString();
-                rbShampoo.setChecked(false);
             }
             else if(rbConditioner.isChecked()){
                 productType = rbConditioner.getText().toString();
-                rbConditioner.setChecked(false);
             }
             else if(rbHairMask.isChecked()){
                 productType = rbHairMask.getText().toString();
-                rbHairMask.setChecked(false);
             }
 
             if(rbProtein.isChecked()){
                 type = rbProtein.getText().toString();
-                rbProtein.setChecked(false);
             }
             else if(rbEmollient.isChecked()){
                 type = rbEmollient.getText().toString();
-                rbEmollient.setChecked(false);
             }
             else if(rbHumectant.isChecked()){
                 type = rbHumectant.getText().toString();
-                rbHumectant.setChecked(false);
             }
 
             Product product = new Product(etProductName.getText().toString(), etProductComposition.getText().toString(), productType , type);
@@ -91,6 +89,8 @@ public class ProductsActivity extends AppCompatActivity {
 
             etProductName.setText("");
             etProductComposition.setText("");
+            rgProductSpec.clearCheck();
+            rgProductType.clearCheck();
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.porosityNavBar);

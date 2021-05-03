@@ -22,24 +22,24 @@
             android:textSize="15dp" />
 
         <TextView
-            android:id="@+id/tvProductType"
+            android:id="@+id/tvProductSpec"
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_below="@+id/tvDate"
             android:background="@drawable/boarder"
             android:gravity="center"
-            android:text="For what"
+            android:text="Product Spec"
             android:textAlignment="center"
             android:textSize="14dp" />
 
         <TextView
-            android:id="@+id/tvType"
+            android:id="@+id/tvProductType"
             android:layout_width="match_parent"
             android:layout_height="51dp"
             android:layout_below="@+id/tvForWhat"
             android:background="@drawable/boarder"
             android:gravity="center"
-            android:text="Type"
+            android:text="Product Type"
             android:textAlignment="center"
             android:textSize="14dp" />
 
@@ -63,12 +63,12 @@
         <TextView
             android:id="@+id/productComposition"
             android:layout_width="match_parent"
-            android:layout_height="101dp"
+            android:layout_height="100dp"
             android:layout_below="@+id/tvProductName"
             android:background="@drawable/boarder"
             android:gravity="center"
             android:text="Product's composition"
-            android:textSize="16sp" />
+            android:textSize="10sp" />
     </LinearLayout>
 
 </LinearLayout>
