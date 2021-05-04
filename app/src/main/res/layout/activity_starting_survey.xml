@@ -16,7 +16,7 @@
         android:layout_height="360dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="32dp"
-        android:background="@drawable/circle_shape"
+        android:background="@drawable/survey_circle_shape"
         android:indeterminateOnly="false"
         android:max="100"
         android:progress="10"
