@@ -33,7 +33,7 @@ public class SurveyActivity extends AppCompatActivity {
         int score = intent.getIntExtra("score", 0);
 
         btnCheckPorosity.setOnClickListener(view -> {
-            Intent intent1 = new Intent(SurveyActivity.this, StartingSurvey.class);
+            Intent intent1 = new Intent(SurveyActivity.this, PorositySurvey.class);
             startActivity(intent1);
             btnClicked.set(true);
         });

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,11 +12,19 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class HomeActivity extends AppCompatActivity {
 
+    private Button btnCompleteDailyTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        btnCompleteDailyTest = findViewById(R.id.btnCompleteDailyTest);
+
+        btnCompleteDailyTest.setOnClickListener(view -> {
+            Intent intent1 = new Intent(HomeActivity.this, DailyPEHSurveyActivity.class);
+            startActivity(intent1);
+        });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.porosityNavBar);
         Menu menu = bottomNavigationView.getMenu();

@@ -3,7 +3,6 @@ package com.example.healthyhair;
 public class DailyPEHSurveyQuestions {
 
     String [] question = {
-            "Is your hair overburdened?",
             "Is your hair spinning?",
             "Is your hair dull?",
             "Is your hair dry?",
