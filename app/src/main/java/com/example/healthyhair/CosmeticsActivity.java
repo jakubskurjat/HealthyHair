@@ -28,9 +28,10 @@ public class CosmeticsActivity extends AppCompatActivity {
     private List<Cosmetic> data = new ArrayList<>();
     private RecyclerView recyclerView;
     private Button showCosmetics;
-    private RadioGroup rbCosmeticsSpec;
-    private RadioGroup rbCosmeticsType;
-    private RadioGroup rbShampooType;
+    private RadioGroup rgCosmeticsSpec;
+    private RadioGroup rgCosmeticsType;
+    private RadioGroup rgShampooType;
+    private RadioGroup rgPorosity;
     private RadioButton rbShampoo;
     private RadioButton rbConditioner;
     private RadioButton rbHairMask;
@@ -39,6 +40,9 @@ public class CosmeticsActivity extends AppCompatActivity {
     private RadioButton rbProtein;
     private RadioButton rbEmollient;
     private RadioButton rbHumectant;
+    private RadioButton rbLowPorosity;
+    private RadioButton rbMediumPorosity;
+    private RadioButton rbHighPorosity;
     private AutoCompleteTextView tvCosmeticName;
 
     private String[] cosmeticsName = {
@@ -121,9 +125,10 @@ public class CosmeticsActivity extends AppCompatActivity {
 
         addDataToList();
         tvCosmeticName = findViewById(R.id.acTVCosmeticName);
-        rbCosmeticsSpec = findViewById(R.id.rbCosmeticSpec);
-        rbCosmeticsType = findViewById(R.id.rbCosmeticType);
-        rbShampooType = findViewById(R.id.rbShampooType);
+        rgCosmeticsSpec = findViewById(R.id.rgCosmeticSpec);
+        rgCosmeticsType = findViewById(R.id.rgCosmeticType);
+        rgShampooType = findViewById(R.id.rgShampooType);
+        rgPorosity = findViewById(R.id.rgPorosity);
         showCosmetics = findViewById(R.id.btnShowCosmetics);
         rbShampoo = findViewById(R.id.rbShampoo);
         rbConditioner = findViewById(R.id.rbConditioner);
@@ -133,6 +138,9 @@ public class CosmeticsActivity extends AppCompatActivity {
         rbProtein = findViewById(R.id.rbProtein);
         rbEmollient = findViewById(R.id.rbEmollient);
         rbHumectant = findViewById(R.id.rbHumectant);
+        rbLowPorosity = findViewById(R.id.rbLowPorosity);
+        rbMediumPorosity = findViewById(R.id.rbMediumPorosity);
+        rbHighPorosity = findViewById(R.id.rbHighPorosity);
 
         showCosmetics.setOnClickListener(view -> {
 
@@ -143,7 +151,8 @@ public class CosmeticsActivity extends AppCompatActivity {
 
                 if (rbShampoo.isChecked() || rbConditioner.isChecked() || rbHairMask.isChecked() ||
                         rbMild.isChecked() || rbStrong.isChecked() ||
-                        rbProtein.isChecked() || rbEmollient.isChecked() || rbHumectant.isChecked()) {
+                        rbProtein.isChecked() || rbEmollient.isChecked() || rbHumectant.isChecked() ||
+                        rbLowPorosity.isChecked() || rbMediumPorosity.isChecked() || rbHighPorosity.isChecked()) {
 
                     if (rbShampoo.isChecked()) {
                         List<Cosmetic> cosmetics1 = data.stream().filter(c -> c.getCosmeticSpec().equals("Shampoo")).collect(Collectors.toList());
@@ -185,6 +194,22 @@ public class CosmeticsActivity extends AppCompatActivity {
                             data.addAll(cosmetics2);
                         }
 
+                        if (rbLowPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Low porosity")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbMediumPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Medium porosity")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbHighPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("High porosity")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+                        }
+
                         if (rbMild.isChecked() || rbStrong.isChecked()) {
                             data.clear();
                         }
@@ -206,6 +231,22 @@ public class CosmeticsActivity extends AppCompatActivity {
 
                         } else if (rbHumectant.isChecked()) {
                             List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Humectant")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+                        }
+
+                        if (rbLowPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Low porosity")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbMediumPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Medium porosity")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbHighPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("High porosity")).collect(Collectors.toList());
                             data.clear();
                             data.addAll(cosmetics2);
                         }
@@ -237,6 +278,22 @@ public class CosmeticsActivity extends AppCompatActivity {
                         List<Cosmetic> cosmetics = data.stream().filter(c -> c.getCosmeticType().equals("Strong")).collect(Collectors.toList());
                         data.clear();
                         data.addAll(cosmetics);
+                    }
+
+                    if (rbLowPorosity.isChecked()) {
+                        List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Low porosity")).collect(Collectors.toList());
+                        data.clear();
+                        data.addAll(cosmetics2);
+
+                    } else if (rbMediumPorosity.isChecked()) {
+                        List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Medium porosity")).collect(Collectors.toList());
+                        data.clear();
+                        data.addAll(cosmetics2);
+
+                    } else if (rbHighPorosity.isChecked()) {
+                        List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("High porosity")).collect(Collectors.toList());
+                        data.clear();
+                        data.addAll(cosmetics2);
                     }
                 }
             } else {
@@ -290,6 +347,22 @@ public class CosmeticsActivity extends AppCompatActivity {
                                 data.addAll(cosmetics2);
                             }
 
+                            if (rbLowPorosity.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Low porosity")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+
+                            } else if (rbMediumPorosity.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Medium porosity")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+
+                            } else if (rbHighPorosity.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("High porosity")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+                            }
+
                             if (rbMild.isChecked() || rbStrong.isChecked()) {
                                 data.clear();
                             }
@@ -311,6 +384,22 @@ public class CosmeticsActivity extends AppCompatActivity {
 
                             } else if (rbHumectant.isChecked()) {
                                 List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Humectant")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+                            }
+
+                            if (rbLowPorosity.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Low porosity")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+
+                            } else if (rbMediumPorosity.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Medium porosity")).collect(Collectors.toList());
+                                data.clear();
+                                data.addAll(cosmetics2);
+
+                            } else if (rbHighPorosity.isChecked()) {
+                                List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("High porosity")).collect(Collectors.toList());
                                 data.clear();
                                 data.addAll(cosmetics2);
                             }
@@ -343,6 +432,23 @@ public class CosmeticsActivity extends AppCompatActivity {
                             data.clear();
                             data.addAll(cosmetics);
                         }
+
+                        if (rbLowPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Low porosity")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbMediumPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Medium porosity")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbHighPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("High porosity")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+                        }
+
                     } else if (rbHairMask.isChecked()) {
                         List<Cosmetic> cosmetic1 = data.stream().filter(c -> c.getCosmeticSpec().equals("Mask")).collect(Collectors.toList());
                         data.clear();
@@ -360,6 +466,22 @@ public class CosmeticsActivity extends AppCompatActivity {
 
                         } else if (rbHumectant.isChecked()) {
                             List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Humectant")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+                        }
+
+                        if (rbLowPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Low porosity")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbMediumPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Medium porosity")).collect(Collectors.toList());
+                            data.clear();
+                            data.addAll(cosmetics2);
+
+                        } else if (rbHighPorosity.isChecked()) {
+                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("High porosity")).collect(Collectors.toList());
                             data.clear();
                             data.addAll(cosmetics2);
                         }
@@ -401,22 +523,23 @@ public class CosmeticsActivity extends AppCompatActivity {
         data.add(new Cosmetic(cosmeticsName[3], "Shampoo", "Strong", cosmeticsComposition[3], "Universal porosity", R.drawable.gosh_macadamia_oil));
         data.add(new Cosmetic(cosmeticsName[4], "Conditioner", "Protein", cosmeticsComposition[4], "Medium porosity", R.drawable.anwen_protein_magnolia));
         data.add(new Cosmetic(cosmeticsName[5], "Conditioner", "Protein", cosmeticsComposition[5], "High porosity", R.drawable.anwen_protein_orchid));
-        data.add(new Cosmetic(cosmeticsName[6], "Conditioner", "Emollient", cosmeticsComposition[6], "Porosity", R.drawable.only_bio_emollient_conditioner));
+        data.add(new Cosmetic(cosmeticsName[6], "Conditioner", "Emollient", cosmeticsComposition[6], "Medium porosity", R.drawable.only_bio_emollient_conditioner));
         data.add(new Cosmetic(cosmeticsName[7], "Conditioner", "Emollient", cosmeticsComposition[7], "Low porosity", R.drawable.anwen_emollient_acacia));
-        data.add(new Cosmetic(cosmeticsName[8], "Conditioner", "Humectant", cosmeticsComposition[8], "Porosity", R.drawable.equalibra_moisturizing_conditioner));
+        data.add(new Cosmetic(cosmeticsName[8], "Conditioner", "Humectant", cosmeticsComposition[8], "Medium porosity", R.drawable.equalibra_moisturizing_conditioner));
         data.add(new Cosmetic(cosmeticsName[9], "Conditioner", "Humectant", cosmeticsComposition[9], "Universal porosity", R.drawable.anwen_moisturizing_conditioner));
-        data.add(new Cosmetic(cosmeticsName[10], "Mask", "Protein", cosmeticsComposition[10], "Porosity", R.drawable.ecolab_keratin_hair_mask));
+        data.add(new Cosmetic(cosmeticsName[10], "Mask", "Protein", cosmeticsComposition[10], "Low porosity", R.drawable.ecolab_keratin_hair_mask));
         data.add(new Cosmetic(cosmeticsName[11], "Mask", "Protein", cosmeticsComposition[11], "Porosity", R.drawable.ecolab_rose_hair_mask));
         data.add(new Cosmetic(cosmeticsName[12], "Mask", "Emollient", cosmeticsComposition[12], "Low porosity", R.drawable.anwen_coconut_kaolin));
-        data.add(new Cosmetic(cosmeticsName[13], "Mask", "Emollient", cosmeticsComposition[13], "Porosity", R.drawable.biolaven_hair_mask));
-        data.add(new Cosmetic(cosmeticsName[14], "Mask", "Humectant", cosmeticsComposition[14], "Porosity", R.drawable.cafe_mini_ceramides_hair_mask));
-        data.add(new Cosmetic(cosmeticsName[15], "Mask", "Humectant", cosmeticsComposition[15], "Porosity", R.drawable.curlsmith_hydro_creme));
+        data.add(new Cosmetic(cosmeticsName[13], "Mask", "Emollient", cosmeticsComposition[13], "Medium porosity", R.drawable.biolaven_hair_mask));
+        data.add(new Cosmetic(cosmeticsName[14], "Mask", "Humectant", cosmeticsComposition[14], "Medium porosity", R.drawable.cafe_mini_ceramides_hair_mask));
+        data.add(new Cosmetic(cosmeticsName[15], "Mask", "Humectant", cosmeticsComposition[15], "Medium porosity", R.drawable.curlsmith_hydro_creme));
     }
 
     private void clearAllFilters() {
         tvCosmeticName.setText("");
-        rbCosmeticsSpec.clearCheck();
-        rbShampooType.clearCheck();
-        rbCosmeticsType.clearCheck();
+        rgCosmeticsSpec.clearCheck();
+        rgShampooType.clearCheck();
+        rgCosmeticsType.clearCheck();
+        rgPorosity.clearCheck();
     }
 }

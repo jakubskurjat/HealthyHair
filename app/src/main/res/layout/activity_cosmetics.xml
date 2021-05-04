@@ -20,7 +20,7 @@
         tools:ignore="MissingConstraints" />
 
     <RadioGroup
-        android:id="@+id/rbCosmeticSpec"
+        android:id="@+id/rgCosmeticSpec"
         android:layout_width="374dp"
         android:layout_height="24dp"
         android:layout_centerHorizontal="true"
@@ -61,7 +61,7 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/rbShampooType"
+        android:id="@+id/rgShampooType"
         android:layout_width="374dp"
         android:layout_height="24dp"
         android:layout_centerHorizontal="true"
@@ -70,10 +70,10 @@
         android:layout_marginTop="24dp"
         android:layout_marginBottom="16dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/rbCosmeticType"
+        app:layout_constraintBottom_toTopOf="@+id/rgCosmeticType"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rbCosmeticSpec"
+        app:layout_constraintTop_toBottomOf="@+id/rgCosmeticSpec"
         tools:ignore="MissingConstraints">
 
         <TextView
@@ -106,7 +106,7 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/rbCosmeticType"
+        android:id="@+id/rgCosmeticType"
         android:layout_width="374dp"
         android:layout_height="24dp"
         android:layout_centerHorizontal="true"
@@ -116,7 +116,7 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/etProductComposition"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rbCosmeticSpec"
+        app:layout_constraintTop_toBottomOf="@+id/rgCosmeticSpec"
         tools:ignore="MissingConstraints">
 
         <RadioButton
@@ -145,6 +145,49 @@
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="63dp" />
     </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rgPorosity"
+        android:layout_width="374dp"
+        android:layout_height="24dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/etProductComposition"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgCosmeticType"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/rbLowPorosity"
+            android:layout_width="92dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="37dp"
+            android:text="Low"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="68dp" />
+
+        <RadioButton
+            android:id="@+id/rbMediumPorosity"
+            android:layout_width="104dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="38dp"
+            android:text="Medium"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <RadioButton
+            android:id="@+id/rbHighPorosity"
+            android:layout_width="104dp"
+            android:layout_height="match_parent"
+            android:text="High"
+            app:layout_constraintEnd_toStartOf="@+id/radioButton2"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="63dp" />
+    </RadioGroup>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cosmeticsRecView"
@@ -179,7 +222,9 @@
         android:text="Show cosmetics"
         app:layout_constraintBottom_toTopOf="@+id/cosmeticsRecView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/rbCosmeticType" />
+        app:layout_constraintTop_toBottomOf="@+id/rgCosmeticType"
+        app:layout_constraintVertical_bias="0.809" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
