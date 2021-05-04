@@ -16,7 +16,7 @@
         android:background="@drawable/survey_circle_shape"
         android:indeterminateOnly="false"
         android:max="100"
-        android:progress="11"
+        android:progress="12"
         android:progressDrawable="@drawable/circular_progress_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

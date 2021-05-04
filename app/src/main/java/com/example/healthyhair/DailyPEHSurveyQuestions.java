@@ -2,7 +2,7 @@ package com.example.healthyhair;
 
 public class DailyPEHSurveyQuestions {
 
-    String [] question = {
+    String [] questions = {
             "Is your hair spinning?",
             "Is your hair dull?",
             "Is your hair dry?",
@@ -14,6 +14,10 @@ public class DailyPEHSurveyQuestions {
     };
 
     public String getQuestion(int a) {
-        return question[a];
+        return questions[a];
+    }
+
+    public int questionsNumber(){
+        return questions.length;
     }
 }
