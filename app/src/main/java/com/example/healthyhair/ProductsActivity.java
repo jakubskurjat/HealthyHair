@@ -52,7 +52,7 @@ public class ProductsActivity extends AppCompatActivity {
 
         DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
         AtomicReference<List<Product>> everyProducts = new AtomicReference<>(dataBaseHelper.getProducts());
-        AtomicReference<SingleProductListAdapter> singleProductListAdapter = new AtomicReference<>(new SingleProductListAdapter(ProductsActivity.this, R.layout.single_product_item, everyProducts.get()));
+        AtomicReference<SingleProductListAdapter> singleProductListAdapter = new AtomicReference<>(new SingleProductListAdapter(ProductsActivity.this, R.layout.product_row, everyProducts.get()));
         listView.setAdapter(singleProductListAdapter.get());
 
         btnAddProduct.setOnClickListener(view -> {
@@ -84,7 +84,7 @@ public class ProductsActivity extends AppCompatActivity {
             dataBaseHelper.addProduct(product);
             everyProducts.set(dataBaseHelper.getProducts());
 
-            singleProductListAdapter.set(new SingleProductListAdapter(ProductsActivity.this, R.layout.single_product_item, everyProducts.get()));
+            singleProductListAdapter.set(new SingleProductListAdapter(ProductsActivity.this, R.layout.product_row, everyProducts.get()));
             listView.setAdapter(singleProductListAdapter.get());
 
             etProductName.setText("");

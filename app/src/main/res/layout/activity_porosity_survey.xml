@@ -5,12 +5,12 @@
     android:id="@+id/activity_survey"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.healthyhair.StartingSurvey"
+    tools:context="com.example.healthyhair.PorositySurvey"
     tools:ignore="MissingDefaultResource">
 
 
     <ProgressBar
-        android:id="@+id/progressBar"
+        android:id="@+id/progressBarSurvey"
         style="@android:style/Widget.ProgressBar.Horizontal"
         android:layout_width="360dp"
         android:layout_height="360dp"
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/question"
+        android:id="@+id/tvQuestionPorosity"
         android:layout_width="263dp"
         android:layout_height="110dp"
         android:baselineAligned="false"
@@ -34,10 +34,10 @@
         android:padding="8dp"
         android:text="What is your hair like? (choose the most appropriate term for them)"
         android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="@+id/progressBar"
-        app:layout_constraintEnd_toEndOf="@+id/progressBar"
-        app:layout_constraintStart_toStartOf="@+id/progressBar"
-        app:layout_constraintTop_toTopOf="@+id/progressBar" />
+        app:layout_constraintBottom_toBottomOf="@+id/progressBarSurvey"
+        app:layout_constraintEnd_toEndOf="@+id/progressBarSurvey"
+        app:layout_constraintStart_toStartOf="@+id/progressBarSurvey"
+        app:layout_constraintTop_toTopOf="@+id/progressBarSurvey" />
 
     <Button
         android:id="@+id/choice1"
@@ -50,7 +50,7 @@
         android:textColor="#fff"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/progressBar" />
+        app:layout_constraintTop_toBottomOf="@+id/progressBarSurvey" />
 
     <Button
         android:id="@+id/choice2"

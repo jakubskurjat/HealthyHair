@@ -1,6 +1,6 @@
 package com.example.healthyhair;
 
-public class StartingSurveyQuestions {
+public class PorositySurveyQuestions {
 
     private String quetions[] = {
             "How long does your hair dry?",

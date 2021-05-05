@@ -9,12 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.HealthyHair">
-        <activity android:name=".ProductsActivity"></activity>
+        <activity android:name=".DailyPEHSurveyActivity"></activity>
+        <activity android:name=".ProductsActivity" />
         <activity android:name=".CosmeticsActivity" />
         <activity android:name=".SettingsActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".SurveyActivity" />
-        <activity android:name=".StartingSurvey" />
+        <activity android:name=".PorositySurvey" />
         <activity android:name=".SignUpActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>

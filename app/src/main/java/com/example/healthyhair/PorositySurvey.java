@@ -8,9 +8,9 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class StartingSurvey extends AppCompatActivity {
+public class PorositySurvey extends AppCompatActivity {
 
-    private StartingSurveyQuestions startingSurveyQuestions = new StartingSurveyQuestions();
+    private PorositySurveyQuestions porositySurveyQuestions = new PorositySurveyQuestions();
     private TextView questionView;
     private Button choice1;
     private Button choice2;
@@ -22,13 +22,13 @@ public class StartingSurvey extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_starting_survey);
+        setContentView(R.layout.activity_porosity_survey);
 
-        questionView = findViewById(R.id.question);
+        questionView = findViewById(R.id.tvQuestionPorosity);
         choice1 = findViewById(R.id.choice1);
         choice2 = findViewById(R.id.choice2);
         choice3 = findViewById(R.id.choice3);
-        progressBar = findViewById(R.id.progressBar);
+        progressBar = findViewById(R.id.progressBarSurvey);
 
         choice1.setOnClickListener(view -> {
             if (questionNumber == 0 | questionNumber == 6)
@@ -59,15 +59,15 @@ public class StartingSurvey extends AppCompatActivity {
     }
 
     private void updateQuestion() {
-        if (questionNumber < startingSurveyQuestions.questionsNumber()) {
-            questionView.setText(startingSurveyQuestions.getQuestion(questionNumber));
-            choice1.setText(startingSurveyQuestions.getChoice1(questionNumber));
-            choice2.setText(startingSurveyQuestions.getChoice2(questionNumber));
-            choice3.setText(startingSurveyQuestions.getChoice3(questionNumber));
+        if (questionNumber < porositySurveyQuestions.questionsNumber()) {
+            questionView.setText(porositySurveyQuestions.getQuestion(questionNumber));
+            choice1.setText(porositySurveyQuestions.getChoice1(questionNumber));
+            choice2.setText(porositySurveyQuestions.getChoice2(questionNumber));
+            choice3.setText(porositySurveyQuestions.getChoice3(questionNumber));
 
             questionNumber++;
         } else {
-            Intent intent = new Intent(StartingSurvey.this, SurveyActivity.class);
+            Intent intent = new Intent(PorositySurvey.this, SurveyActivity.class);
             intent.putExtra("score", score);
             startActivity(intent);
         }

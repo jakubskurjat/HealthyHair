@@ -88,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
                                     editor.putBoolean("PREFERENCES", true);
                                     editor.commit();
 
-                                    Intent intent = new Intent(MainActivity.this, StartingSurvey.class);
+                                    Intent intent = new Intent(MainActivity.this, PorositySurvey.class);
                                     startActivity(intent);
                                 }
                             } else {
