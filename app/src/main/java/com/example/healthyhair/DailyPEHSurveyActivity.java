@@ -70,9 +70,12 @@ public class DailyPEHSurveyActivity extends AppCompatActivity {
         String proteinsLevel;
         String emollientsLevel;
         String humectantsLevel;
+        String advice = "\nAdvice:\nDuring today's care, use a conditioner or mask with predominantly ";
+        String advicePEH = null;
 
         if (pScore < 0) {
             proteinsLevel = "deficiency";
+            advicePEH = "proteins";
         } else if (pScore == 0) {
             proteinsLevel = "in balanced";
         } else {
@@ -81,6 +84,11 @@ public class DailyPEHSurveyActivity extends AppCompatActivity {
 
         if (eScore < 0) {
             emollientsLevel = "deficiency";
+             if(advicePEH.length() == 0){
+                 advicePEH = "emollients";
+             } else {
+                 advicePEH += ", emollients";
+             }
         } else if (eScore == 0) {
             emollientsLevel = "in balanced";
         } else {
@@ -89,12 +97,22 @@ public class DailyPEHSurveyActivity extends AppCompatActivity {
 
         if (hScore < 0) {
             humectantsLevel = "deficiency";
+            if(advicePEH.length() == 0){
+                advicePEH = "humectants";
+            } else {
+                advicePEH += ", humectants";
+            }
         } else if (hScore == 0) {
             humectantsLevel = "in balanced";
         } else {
             humectantsLevel = "excess";
         }
 
-        return "Your result:\n" + "Proteins: " + proteinsLevel + "\nEmullients: " + emollientsLevel + "\nHumectants: " + humectantsLevel;
+        if (advicePEH == null) {
+            advice = "";
+            advicePEH = "\nPEH balance is maintained";
+        }
+
+        return "Your result:\n" + "Proteins: " + proteinsLevel + "\nEmullients: " + emollientsLevel + "\nHumectants: " + humectantsLevel + "\n" + advice + advicePEH + ".";
     }
 }

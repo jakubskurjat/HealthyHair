@@ -169,6 +169,7 @@ public class CosmeticsActivity extends AppCompatActivity {
                             data.clear();
                             data.addAll(cosmetics2);
                         }
+
                         if (rbProtein.isChecked() || rbEmollient.isChecked() || rbHumectant.isChecked()) {
                             data.clear();
                         }
@@ -296,6 +297,7 @@ public class CosmeticsActivity extends AppCompatActivity {
                         data.addAll(cosmetics2);
                     }
                 }
+
             } else {
                 Optional<Cosmetic> cosmetic = data.stream().filter(c -> c.getCosmeticName().equals(tvCosmeticName.getText().toString())).findAny();
 
@@ -305,7 +307,8 @@ public class CosmeticsActivity extends AppCompatActivity {
 
                     if (rbShampoo.isChecked() || rbConditioner.isChecked() || rbHairMask.isChecked() ||
                             rbMild.isChecked() || rbStrong.isChecked() ||
-                            rbProtein.isChecked() || rbEmollient.isChecked() || rbHumectant.isChecked()) {
+                            rbProtein.isChecked() || rbEmollient.isChecked() || rbHumectant.isChecked() ||
+                            rbLowPorosity.isChecked() || rbMediumPorosity.isChecked() || rbHighPorosity.isChecked()) {
 
                         if (rbShampoo.isChecked()) {
                             List<Cosmetic> cosmetics1 = data.stream().filter(c -> c.getCosmeticSpec().equals("Shampoo")).collect(Collectors.toList());
@@ -322,6 +325,7 @@ public class CosmeticsActivity extends AppCompatActivity {
                                 data.clear();
                                 data.addAll(cosmetics2);
                             }
+
                             if (rbProtein.isChecked() || rbEmollient.isChecked() || rbHumectant.isChecked()) {
                                 data.clear();
                             }
@@ -447,47 +451,6 @@ public class CosmeticsActivity extends AppCompatActivity {
                             List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("High porosity")).collect(Collectors.toList());
                             data.clear();
                             data.addAll(cosmetics2);
-                        }
-
-                    } else if (rbHairMask.isChecked()) {
-                        List<Cosmetic> cosmetic1 = data.stream().filter(c -> c.getCosmeticSpec().equals("Mask")).collect(Collectors.toList());
-                        data.clear();
-                        data.addAll(cosmetic1);
-
-                        if (rbProtein.isChecked()) {
-                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Protein")).collect(Collectors.toList());
-                            data.clear();
-                            data.addAll(cosmetics2);
-
-                        } else if (rbEmollient.isChecked()) {
-                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Emollient")).collect(Collectors.toList());
-                            data.clear();
-                            data.addAll(cosmetics2);
-
-                        } else if (rbHumectant.isChecked()) {
-                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticType().equals("Humectant")).collect(Collectors.toList());
-                            data.clear();
-                            data.addAll(cosmetics2);
-                        }
-
-                        if (rbLowPorosity.isChecked()) {
-                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Low porosity")).collect(Collectors.toList());
-                            data.clear();
-                            data.addAll(cosmetics2);
-
-                        } else if (rbMediumPorosity.isChecked()) {
-                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("Medium porosity")).collect(Collectors.toList());
-                            data.clear();
-                            data.addAll(cosmetics2);
-
-                        } else if (rbHighPorosity.isChecked()) {
-                            List<Cosmetic> cosmetics2 = data.stream().filter(c -> c.getCosmeticPorosity().equals("Universal porosity") || c.getCosmeticPorosity().equals("High porosity")).collect(Collectors.toList());
-                            data.clear();
-                            data.addAll(cosmetics2);
-                        }
-
-                        if (rbMild.isChecked() || rbStrong.isChecked()) {
-                            data.clear();
                         }
                     }
 
