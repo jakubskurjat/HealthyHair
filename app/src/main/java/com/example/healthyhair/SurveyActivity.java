@@ -42,7 +42,7 @@ public class SurveyActivity extends AppCompatActivity {
         if (score <= 18) {
             tvPorosity.setText("HIGH POROSITY");
         } else if (score <= 26) {
-            tvPorosity.setText("AVERAGE POROSITY");
+            tvPorosity.setText("MEDIUM POROSITY");
         } else tvPorosity.setText("LOW POROSITY");
 
 

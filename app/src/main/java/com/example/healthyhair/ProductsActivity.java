@@ -25,12 +25,19 @@ public class ProductsActivity extends AppCompatActivity {
     private EditText etProductComposition;
     private RadioGroup rgProductSpec;
     private RadioGroup rgProductType;
+    private RadioGroup rgShampooType;
+    private RadioGroup rgPorosity;
     private RadioButton rbShampoo;
     private RadioButton rbConditioner;
     private RadioButton rbHairMask;
     private RadioButton rbProtein;
     private RadioButton rbEmollient;
     private RadioButton rbHumectant;
+    private RadioButton rbMild;
+    private RadioButton rbStrong;
+    private RadioButton rbLowPorosity;
+    private RadioButton rbMediumPorosity;
+    private RadioButton rbHighPorosity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,12 +50,20 @@ public class ProductsActivity extends AppCompatActivity {
         etProductComposition = findViewById(R.id.etProductComposition);
         rgProductSpec = findViewById(R.id.rgProductSpec);
         rgProductType = findViewById(R.id.rgProductType);
+        rgShampooType = findViewById(R.id.rgShampooType);
+        rgPorosity = findViewById(R.id.rgPorosity);
+
         rbShampoo = findViewById(R.id.rbShampoo);
         rbConditioner = findViewById(R.id.rbConditioner);
         rbHairMask = findViewById(R.id.rbHairMask);
         rbProtein = findViewById(R.id.rbProtein);
         rbEmollient = findViewById(R.id.rbEmollient);
         rbHumectant = findViewById(R.id.rbHumectant);
+        rbMild = findViewById(R.id.rbMild);
+        rbStrong = findViewById(R.id.rbStrong);
+        rbLowPorosity = findViewById(R.id.rbLowPorosity);
+        rbMediumPorosity = findViewById(R.id.rbMediumPorosity);
+        rbHighPorosity = findViewById(R.id.rbHighPorosity);
 
         DataBaseHelper dataBaseHelper = new DataBaseHelper(this);
         AtomicReference<List<Product>> everyProducts = new AtomicReference<>(dataBaseHelper.getProducts());
@@ -59,28 +74,41 @@ public class ProductsActivity extends AppCompatActivity {
 
             String productType = "";
             String type = "";
+            String porosity = "";
 
-            if(rbShampoo.isChecked()){
+            if (rbShampoo.isChecked()) {
                 productType = rbShampoo.getText().toString();
-            }
-            else if(rbConditioner.isChecked()){
+            } else if (rbConditioner.isChecked()) {
                 productType = rbConditioner.getText().toString();
-            }
-            else if(rbHairMask.isChecked()){
+            } else if (rbHairMask.isChecked()) {
                 productType = rbHairMask.getText().toString();
             }
 
-            if(rbProtein.isChecked()){
-                type = rbProtein.getText().toString();
-            }
-            else if(rbEmollient.isChecked()){
-                type = rbEmollient.getText().toString();
-            }
-            else if(rbHumectant.isChecked()){
-                type = rbHumectant.getText().toString();
+            if (!rbShampoo.isChecked()) {
+                if (rbProtein.isChecked()) {
+                    type = rbProtein.getText().toString();
+                } else if (rbEmollient.isChecked()) {
+                    type = rbEmollient.getText().toString();
+                } else if (rbHumectant.isChecked()) {
+                    type = rbHumectant.getText().toString();
+                }
+            } else {
+                if (rbMild.isChecked()) {
+                    type = rbMild.getText().toString();
+                } else if (rbStrong.isChecked()) {
+                    type = rbStrong.getText().toString();
+                }
             }
 
-            Product product = new Product(etProductName.getText().toString(), etProductComposition.getText().toString(), productType , type);
+            if (rbLowPorosity.isChecked()) {
+                porosity = rbLowPorosity.getText().toString() + " porosity";
+            } else if (rbMediumPorosity.isChecked()) {
+                porosity = rbMediumPorosity.getText().toString() + " porosity";
+            } else if (rbHighPorosity.isChecked()) {
+                porosity = rbHighPorosity.getText().toString() + " porosity";
+            }
+
+            Product product = new Product(etProductName.getText().toString(), etProductComposition.getText().toString(), productType, type, porosity);
             dataBaseHelper.addProduct(product);
             everyProducts.set(dataBaseHelper.getProducts());
 
@@ -91,6 +119,8 @@ public class ProductsActivity extends AppCompatActivity {
             etProductComposition.setText("");
             rgProductSpec.clearCheck();
             rgProductType.clearCheck();
+            rgShampooType.clearCheck();
+            rgPorosity.clearCheck();
         });
 
         BottomNavigationView bottomNavigationView = findViewById(R.id.porosityNavBar);

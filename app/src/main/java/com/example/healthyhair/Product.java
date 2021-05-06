@@ -10,21 +10,24 @@ public class Product {
     private String composition;
     private String productType;
     private String type;
+    private String porosity;
 
-    public Product(String time, String name, String composition, String productType, String type) {
+    public Product(String time, String name, String composition, String productType, String type, String porosity) {
         this.time = time;
         this.name = name;
         this.composition = composition;
         this.productType = productType;
         this.type = type;
+        this.porosity = porosity;
     }
 
-    public Product(String name, String composition, String productType, String type) {
+    public Product(String name, String composition, String productType, String type, String porosity) {
         this.time = new SimpleDateFormat("dd-MM-yyyy HH:mm:ss", Locale.getDefault()).format(new Date());
         this.name = name;
         this.composition = composition;
         this.productType = productType;
         this.type = type;
+        this.porosity = porosity;
     }
 
     public String getTime() {
@@ -47,6 +50,10 @@ public class Product {
         return type;
     }
 
+    public String getPorosity() {
+        return porosity;
+    }
+
     @Override
     public String toString() {
         return "Product{" +
@@ -55,6 +62,7 @@ public class Product {
                 ", composition='" + composition + '\'' +
                 ", productType='" + productType + '\'' +
                 ", type='" + type + '\'' +
+                ", porosity='" + porosity + '\'' +
                 '}';
     }
 }

@@ -30,6 +30,7 @@ public class SingleProductListAdapter extends ArrayAdapter<Product> {
         String composition = getItem(position).getComposition();
         String productType = getItem(position).getProductType();
         String type = getItem(position).getType();
+        String porosity = getItem(position).getPorosity();
 
         LayoutInflater inflater = LayoutInflater.from(mContext);
         convertView = inflater.inflate(mResource, parent, false);
@@ -39,12 +40,14 @@ public class SingleProductListAdapter extends ArrayAdapter<Product> {
         TextView tvComposition = convertView.findViewById(R.id.productComposition);
         TextView tvProductType = convertView.findViewById(R.id.tvProductSpec);
         TextView tvType = convertView.findViewById(R.id.tvProductType);
+        TextView tvPorosity = convertView.findViewById(R.id.tvPorosity);
 
         tvDate.setText(date);
         tvName.setText(name);
         tvComposition.setText("Composition: " + composition);
         tvProductType.setText(productType);
         tvType.setText(type);
+        tvPorosity.setText(porosity);
 
         return convertView;
     }

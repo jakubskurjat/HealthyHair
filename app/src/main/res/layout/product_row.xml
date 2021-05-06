@@ -36,10 +36,21 @@
             android:id="@+id/tvProductType"
             android:layout_width="match_parent"
             android:layout_height="51dp"
-            android:layout_below="@+id/tvForWhat"
+            android:layout_below="@+id/tvProductSpec"
             android:background="@drawable/boarder"
             android:gravity="center"
             android:text="Product Type"
+            android:textAlignment="center"
+            android:textSize="14dp" />
+
+        <TextView
+            android:id="@+id/tvPorosity"
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:layout_below="@+id/tvProductType"
+            android:background="@drawable/boarder"
+            android:gravity="center"
+            android:text="Porosity"
             android:textAlignment="center"
             android:textSize="14dp" />
 
@@ -63,12 +74,12 @@
         <TextView
             android:id="@+id/productComposition"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="152dp"
             android:layout_below="@+id/tvProductName"
             android:background="@drawable/boarder"
             android:gravity="center"
             android:text="Product's composition"
-            android:textSize="10sp" />
+            android:textSize="11sp" />
     </LinearLayout>
 
 </LinearLayout>

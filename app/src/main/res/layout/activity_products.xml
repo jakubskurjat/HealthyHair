@@ -8,12 +8,10 @@
 
     <ListView
         android:id="@+id/listOfProducts"
-        android:layout_width="412dp"
-        android:layout_height="490dp"
+        android:layout_width="411dp"
+        android:layout_height="371dp"
         app:layout_constraintBottom_toTopOf="@+id/porosityNavBar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btnAddProduct"
-        app:layout_constraintVertical_bias="0.0"></ListView>
+        app:layout_constraintStart_toStartOf="parent"></ListView>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/porosityNavBar"
@@ -24,12 +22,12 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/navbar"></com.google.android.material.bottomnavigation.BottomNavigationView>
+        app:menu="@menu/navbar" />
 
     <EditText
         android:id="@+id/etProductName"
-        android:layout_width="355dp"
-        android:layout_height="45dp"
+        android:layout_width="375dp"
+        android:layout_height="46dp"
         android:layout_marginTop="16dp"
         android:ems="10"
         android:hint="Product's name"
@@ -43,20 +41,18 @@
         android:id="@+id/btnAddProduct"
         android:layout_width="208dp"
         android:layout_height="44dp"
-        android:layout_marginTop="172dp"
-        android:layout_marginBottom="10dp"
+        android:layout_marginBottom="12dp"
         android:text="Add product"
         app:layout_constraintBottom_toTopOf="@+id/listOfProducts"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etProductName" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/etProductComposition"
-        android:layout_width="371dp"
-        android:layout_height="86dp"
-        android:layout_marginBottom="10dp"
+        android:layout_width="375dp"
+        android:layout_height="100dp"
+        android:layout_marginBottom="12dp"
         android:ems="10"
         android:gravity="start|top"
         android:hint="Product's composition"
@@ -64,26 +60,25 @@
         app:layout_constraintBottom_toTopOf="@+id/btnAddProduct"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etProductName"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/rgPorosity"
+        app:layout_constraintVertical_bias="0.873" />
 
     <RadioGroup
         android:id="@+id/rgProductSpec"
-        android:layout_width="374dp"
+        android:layout_width="375dp"
         android:layout_height="24dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="12dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/etProductName"
         tools:ignore="MissingConstraints">
 
         <RadioButton
             android:id="@+id/rbShampoo"
-            android:layout_width="wrap_content"
+            android:layout_width="95dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="37dp"
             android:text="Shampoo"
@@ -102,7 +97,7 @@
         <RadioButton
             android:id="@+id/rbHairMask"
             android:layout_width="104dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_marginEnd="100dp"
             android:text="Hair mask"
             app:layout_constraintEnd_toStartOf="@+id/radioButton3"
@@ -110,22 +105,65 @@
     </RadioGroup>
 
     <RadioGroup
-        android:id="@+id/rgProductType"
+        android:id="@+id/rgShampooType"
         android:layout_width="374dp"
         android:layout_height="24dp"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="12dp"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toTopOf="@+id/etProductComposition"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgProductSpec"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tvShampoo"
+            android:layout_width="94dp"
+            android:layout_height="match_parent"
+            android:layout_marginEnd="37dp"
+            android:gravity="center"
+            android:text="Shampoo:"
+            android:textColor="@color/colorBlack"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/rbMild"
+            android:layout_width="105dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="36.5dp"
+            android:text="Mild"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="68dp" />
+
+        <RadioButton
+            android:id="@+id/rbStrong"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="39dp"
+            android:text="Strong"
+            app:layout_constraintEnd_toStartOf="@+id/radioButton3"
+            tools:layout_editor_absoluteY="67dp" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rgProductType"
+        android:layout_width="375dp"
+        android:layout_height="24dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="48dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/rgProductSpec"
         tools:ignore="MissingConstraints">
 
         <RadioButton
             android:id="@+id/rbProtein"
-            android:layout_width="92dp"
+            android:layout_width="95dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="37dp"
             android:text="Protein"
@@ -143,9 +181,49 @@
 
         <RadioButton
             android:id="@+id/rbHumectant"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="103.5dp"
+            android:layout_height="match_parent"
             android:text="Humectant"
+            app:layout_constraintEnd_toStartOf="@+id/radioButton2"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:layout_editor_absoluteY="63dp" />
+    </RadioGroup>
+
+    <RadioGroup
+        android:id="@+id/rgPorosity"
+        android:layout_width="375dp"
+        android:layout_height="24dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="12dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rgProductType"
+        tools:ignore="MissingConstraints">
+
+        <RadioButton
+            android:id="@+id/rbLowPorosity"
+            android:layout_width="95dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="37dp"
+            android:text="Low"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:layout_editor_absoluteY="68dp" />
+
+        <RadioButton
+            android:id="@+id/rbMediumPorosity"
+            android:layout_width="103dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="39dp"
+            android:text="Medium"
+            tools:layout_editor_absoluteY="67dp" />
+
+        <RadioButton
+            android:id="@+id/rbHighPorosity"
+            android:layout_width="102dp"
+            android:layout_height="match_parent"
+            android:text="High"
             app:layout_constraintEnd_toStartOf="@+id/radioButton2"
             app:layout_constraintStart_toStartOf="parent"
             tools:layout_editor_absoluteY="63dp" />
